@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KINETIC ARCHIVE® — Y2K & Contemporary Footwear</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='14' fill='%2309090B'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='25' font-weight='700' fill='%23CCFF00'%3EK/A%3C/text%3E%3C/svg%3E" />
+  
+  <!-- Google Fonts: Space Grotesk (Display), Plus Jakarta Sans (Body), JetBrains Mono (Specs) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            obsidian: '#09090B',
+            alabaster: '#F8F8F7',
+            chrome: '#D4D4D8',
+            limevolt: '#CCFF00',
+            cobalt: '#2563EB',
+            ash: '#71717A'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: #F8F8F7;
+      color: #09090B;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Hairline grid pattern */
+    .bg-archive-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(9, 9, 11, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(9, 9, 11, 0.04) 1px, transparent 1px);
+    }
+
+    /* Glassmorphism Header */
+    .glass-nav {
+      background: rgba(248, 248, 247, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Chrome Gradient Badge */
+    .chrome-surface {
+      background: linear-gradient(135deg, #F4F4F5 0%, #D4D4D8 50%, #E4E4E7 100%);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F8F7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #A1A1AA;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #09090B;
+    }
+
+    /* Hide scrollbar for horizontal chips */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Product Image Zoom */
+    .product-card:hover .product-img {
+      transform: scale(1.06);
+    }
+    .product-img {
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker-scroll 24s linear infinite;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes ticker-scroll {
+      to { transform: translateX(-50%); }
+    }
+    @keyframes welcome-appear {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .welcome-card {
+      animation: welcome-appear 0.3s ease-out both;
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 767px) {
+      /* Prevent iOS Safari from zooming the page when a form field receives focus. */
+      input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+      textarea,
+      select {
+        font-size: 16px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
+      .welcome-card { animation: none; }
+      .scroll-reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body class="bg-archive-grid antialiased selection:bg-limevolt selection:text-obsidian">
+
+  <!-- TOP EDITORIAL TICKER -->
+  <div class="bg-obsidian text-alabaster text-[11px] font-mono tracking-wider py-2 px-4 border-b border-zinc-800 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-2 min-w-0 overflow-hidden">
+      <span class="inline-block w-2 h-2 rounded-full bg-limevolt animate-pulse shrink-0"></span>
+      <div class="overflow-hidden whitespace-nowrap" aria-label="Archive Drop 04: double-box protection and pre-shipping QC photo included">
+        <div class="ticker-track">
+          <span id="topTickerText" class="pr-12">ARCHIVE DROP 04 // DOUBLE-BOX PROTECTION & PRE-SHIPPING QC PHOTO INCLUDED&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;</span>
+          <span aria-hidden="true" class="pr-12">ARCHIVE DROP 04 // DOUBLE-BOX PROTECTION & PRE-SHIPPING QC PHOTO INCLUDED&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    </div>
+    <div class="hidden sm:flex items-center gap-4 text-zinc-400 shrink-0">
+      <span id="headerCityBadge">SHIPPING FROM JAKARTA</span>
+      <span>•</span>
+      <a href="#trackerSection" class="text-limevolt hover:underline">LACAK & CEK QC</a>
+    </div>
+  </div>
+
+  <!-- STICKY SMART HEADER -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-zinc-900/15">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group shrink-0">
+        <div class="w-8 h-8 bg-obsidian text-limevolt flex items-center justify-center font-display font-bold text-lg tracking-tighter border border-obsidian group-hover:bg-limevolt group-hover:text-obsidian transition-colors">
+          K/A
+        </div>
+        <div>
+          <span id="brandNameHeader" class="font-display font-bold text-lg sm:text-xl tracking-tight uppercase block leading-none">KINETIC ARCHIVE®</span>
+          <span class="font-mono text-[10px] text-zinc-500 tracking-widest uppercase block mt-0.5">FOOTWEAR INDEX // 2026</span>
+        </div>
+      </a>
+
+      <!-- Desktop Live Search -->
+      <div class="hidden md:flex flex-1 max-w-md relative">
+        <i data-lucide="search" class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+        <input 
+          type="text" 
+          id="searchInputDesktop"
+          placeholder="Cari siluet, kode seri, atau colorway (mis. Silver, Gel, 2000)..." 
+          class="w-full bg-white/90 border border-zinc-300 focus:border-obsidian pl-10 pr-8 py-2 text-xs font-mono outline-none transition-colors"
+        />
+        <button id="clearSearchDesktop" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-obsidian">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="openSizeFinderModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 border border-zinc-300 bg-white hover:border-obsidian text-xs font-mono font-medium transition-colors">
+          <i data-lucide="ruler" class="w-3.5 h-3.5"></i>
+          <span>SIZE FINDER</span>
+        </button>
+
+        <a href="#vibeMatcher" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 border border-zinc-300 bg-white hover:border-obsidian text-xs font-mono font-medium transition-colors">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>STYLE MATCH</span>
+        </a>
+
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer(true)" class="relative inline-flex items-center gap-2 bg-obsidian text-alabaster hover:bg-zinc-800 px-3.5 py-2 text-xs font-mono font-semibold tracking-wide transition-colors">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-limevolt"></i>
+          <span class="hidden sm:inline">BAG</span>
+          <span id="cartCountBadge" class="bg-limevolt text-obsidian px-1.5 py-0.2 text-[11px] font-bold">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div class="md:hidden px-4 pb-3">
+      <div class="relative">
+        <i data-lucide="search" class="w-4 h-4 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+        <input 
+          type="text" 
+          id="searchInputMobile"
+          placeholder="Cari model, seri, atau warna..." 
+          class="w-full bg-white border border-zinc-300 focus:border-obsidian pl-9 pr-8 py-2 text-xs font-mono outline-none"
+        />
+        <button id="clearSearchMobile" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-obsidian">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- EDITORIAL HERO BANNER -->
+  <section data-scroll-reveal class="border-b border-zinc-900/15 bg-obsidian text-alabaster relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7 space-y-5 z-10">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 border border-zinc-700 bg-zinc-900/90 font-mono text-[11px] text-chrome">
+          <span class="text-limevolt font-bold">[NEW SEASON ARCHIVE]</span>
+          <span>Y2K TECH RUNNERS & RETRO COURT</span>
+        </div>
+        
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.03] uppercase">
+          ENGINEERED SILHOUETTES FOR <span class="text-limevolt">MODERN STREETS.</span>
+        </h1>
+        
+        <p class="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed">
+          Kurasi siluet sepatu Y2K metallic runner, skate court chunky, hingga arsip kolaborasi terbatas. Setiap unit melewati inspeksi QC foto real sebelum pengiriman & dikemas dengan <span class="text-white font-medium">Double Box Pelindung</span>.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#catalogSection" class="inline-flex items-center gap-2 bg-limevolt text-obsidian hover:bg-white font-mono font-bold text-xs px-5 py-3.5 uppercase tracking-wider transition-colors">
+            <span>EKSPLOR KATALOG</span>
+            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+          </a>
+          <button onclick="openSizeFinderModal()" class="inline-flex items-center gap-2 border border-zinc-700 hover:border-limevolt text-alabaster font-mono text-xs px-4 py-3.5 uppercase tracking-wider transition-colors">
+            <i data-lucide="ruler" class="w-4 h-4 text-limevolt"></i>
+            <span>CEK UKURAN KAKI (CM)</span>
+          </button>
+        </div>
+
+        <!-- Micro Specs Strip -->
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-zinc-800/90 max-w-lg font-mono">
+          <div>
+            <div class="text-limevolt text-sm sm:text-base font-bold">100% QC</div>
+            <div class="text-[10px] text-zinc-400 uppercase">Foto Real Unit</div>
+          </div>
+          <div>
+            <div class="text-white text-sm sm:text-base font-bold">7 HARI</div>
+            <div class="text-[10px] text-zinc-400 uppercase">Garansi Tukar Size</div>
+          </div>
+          <div>
+            <div class="text-white text-sm sm:text-base font-bold">DOUBLE BOX</div>
+            <div class="text-[10px] text-zinc-400 uppercase">Anti Penyok</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Hero Spec Card -->
+      <div class="lg:col-span-5 relative">
+        <div class="border border-zinc-700 bg-zinc-900/90 p-4 sm:p-5 relative group">
+          <div class="flex items-center justify-between font-mono text-[10px] text-zinc-400 pb-3 border-b border-zinc-800">
+            <span>FEATURED ARCHIVE // SPEC-01</span>
+            <span class="px-2 py-0.5 bg-limevolt/15 text-limevolt border border-limevolt/30">READY STOCK</span>
+          </div>
+          
+          <div class="relative aspect-[16/11] my-3 overflow-hidden bg-zinc-800">
+            <img 
+              src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=1000&q=85" 
+              alt="Y2K Chrome Runner" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute bottom-2 left-2 bg-obsidian/85 backdrop-blur px-2.5 py-1 font-mono text-[10px] text-limevolt border border-zinc-700">
+              METALLIC SILVER / OBSIDIAN MESH
+            </div>
+          </div>
+
+          <div class="flex items-end justify-between gap-4 pt-1">
+            <div>
+              <p class="font-mono text-[11px] text-zinc-400">ARCH-2004-SLV</p>
+              <h2 class="font-display font-bold text-lg text-white">GEL-NIMBUS Y2K CHROME</h2>
+              <p class="font-mono text-sm text-limevolt font-semibold mt-0.5">Rp 1.450.000</p>
+            </div>
+            <button onclick="openProductModalById('sh-1')" class="bg-white text-obsidian hover:bg-limevolt font-mono text-xs font-bold px-3.5 py-2.5 uppercase transition-colors shrink-0">
+              PILIH SIZE +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTFIT / VIBE MATCHER WIDGET -->
+  <section id="vibeMatcher" data-scroll-reveal class="border-b border-zinc-900/15 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 font-mono text-[11px] text-zinc-500 uppercase">
+            <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-obsidian"></i>
+            <span>OUTFIT / VIBE MATCHER</span>
+          </div>
+          <h2 class="font-display font-bold text-lg sm:text-xl tracking-tight mt-0.5">
+            Bingung pilih siluet? Sesuaikan dengan gaya harianmu:
+          </h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2" id="vibeButtonsContainer">
+          <button onclick="selectVibe('all')" data-vibe="all" class="vibe-btn active px-3.5 py-2 text-xs font-mono border border-obsidian bg-obsidian text-limevolt transition-all">
+            SEMUA GAYA
+          </button>
+          <button onclick="selectVibe('baggy')" data-vibe="baggy" class="vibe-btn px-3.5 py-2 text-xs font-mono border border-zinc-300 bg-alabaster hover:border-obsidian transition-all">
+            👖 BAGGY DENIM & STREETWEAR
+          </button>
+          <button onclick="selectVibe('minimal')" data-vibe="minimal" class="vibe-btn px-3.5 py-2 text-xs font-mono border border-zinc-300 bg-alabaster hover:border-obsidian transition-all">
+            🤍 CLEAN MINIMALIST / SMART CASUAL
+          </button>
+          <button onclick="selectVibe('techwear')" data-vibe="techwear" class="vibe-btn px-3.5 py-2 text-xs font-mono border border-zinc-300 bg-alabaster hover:border-obsidian transition-all">
+            ⚡ SPORTY / Y2K TECHWEAR
+          </button>
+          <button onclick="selectVibe('campus')" data-vibe="campus" class="vibe-btn px-3.5 py-2 text-xs font-mono border border-zinc-300 bg-alabaster hover:border-obsidian transition-all">
+            🎒 DAILY CAMPUS / HANGOUT
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Vibe Recommendation Banner -->
+      <div id="vibeAdviceBox" class="hidden mt-4 p-3.5 bg-alabaster border-l-4 border-obsidian flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <p id="vibeAdviceText" class="text-xs sm:text-sm text-zinc-700"></p>
+        <button onclick="selectVibe('all')" class="text-[11px] font-mono underline text-obsidian shrink-0 self-start sm:self-center">Reset Gaya</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CATALOG & SMART FILTERS -->
+  <main id="catalogSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    
+    <!-- Filter Controls Bar -->
+    <div data-scroll-reveal class="space-y-4 mb-8">
+      <!-- Category Tabs + Sort -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-zinc-900/15">
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1" id="categoryFilterContainer">
+          <button onclick="setCategoryFilter('ALL')" data-cat="ALL" class="cat-btn px-3.5 py-2 text-xs font-mono font-semibold uppercase bg-obsidian text-white border border-obsidian shrink-0">
+            Semua Rilisan
+          </button>
+          <button onclick="setCategoryFilter('Y2K Chunky Runners')" data-cat="Y2K Chunky Runners" class="cat-btn px-3.5 py-2 text-xs font-mono font-medium uppercase bg-white text-obsidian border border-zinc-300 hover:border-obsidian shrink-0">
+            Y2K Chunky Runners
+          </button>
+          <button onclick="setCategoryFilter('Retro Court / Skate')" data-cat="Retro Court / Skate" class="cat-btn px-3.5 py-2 text-xs font-mono font-medium uppercase bg-white text-obsidian border border-zinc-300 hover:border-obsidian shrink-0">
+            Retro Court / Skate
+          </button>
+          <button onclick="setCategoryFilter('Limited Archive / Collab')" data-cat="Limited Archive / Collab" class="cat-btn px-3.5 py-2 text-xs font-mono font-medium uppercase bg-white text-obsidian border border-zinc-300 hover:border-obsidian shrink-0">
+            Limited Archive / Collab
+          </button>
+          <button onclick="setCategoryFilter('Daily Essentials')" data-cat="Daily Essentials" class="cat-btn px-3.5 py-2 text-xs font-mono font-medium uppercase bg-white text-obsidian border border-zinc-300 hover:border-obsidian shrink-0">
+            Daily Essentials
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <label for="sortSelect" class="font-mono text-[11px] text-zinc-500 uppercase">Urutkan:</label>
+          <select id="sortSelect" onchange="renderCatalog()" class="bg-white border border-zinc-300 px-3 py-2 text-xs font-mono outline-none focus:border-obsidian">
+            <option value="featured">Kurasi Unggulan</option>
+            <option value="price-asc">Harga: Terendah</option>
+            <option value="price-desc">Harga: Tertinggi</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Quick Size Availability Filter -->
+      <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 border border-zinc-900/15">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-mono text-xs font-semibold uppercase flex items-center gap-1.5 mr-1">
+            <i data-lucide="footprints" class="w-4 h-4"></i>
+            Filter Ready Size (EU):
+          </span>
+          <button onclick="setSizeFilter('ALL')" data-size="ALL" class="size-filter-btn px-2.5 py-1 text-xs font-mono font-bold bg-obsidian text-limevolt border border-obsidian">
+            SEMUA
+          </button>
+          <button onclick="setSizeFilter(38)" data-size="38" class="size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300">38</button>
+          <button onclick="setSizeFilter(39)" data-size="39" class="size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300">39</button>
+          <button onclick="setSizeFilter(40)" data-size="40" class="size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300">40</button>
+          <button onclick="setSizeFilter(41)" data-size="41" class="size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300">41</button>
+          <button onclick="setSizeFilter(42)" data-size="42" class="size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300">42</button>
+          <button onclick="setSizeFilter(43)" data-size="43" class="size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300">43</button>
+          <button onclick="setSizeFilter(44)" data-size="44" class="size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300">44</button>
+        </div>
+
+        <div class="flex items-center gap-3 text-xs font-mono text-zinc-500">
+          <span id="catalogCounter">Menampilkan 8 siluet</span>
+          <button onclick="resetAllFilters()" id="resetFilterBtn" class="hidden text-obsidian underline font-semibold">Reset Filter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Rendered via JS -->
+    </div>
+
+    <p class="mt-4 text-[11px] font-mono text-zinc-500">INFO STOK: status ukuran pada katalog adalah data lokal demo. Sinkronisasi real-time lintas toko fisik dan marketplace memerlukan backend inventori bersama.</p>
+
+    <!-- Empty State -->
+    <div id="emptyCatalogState" class="hidden py-16 text-center bg-white border border-zinc-900/15">
+      <div class="w-12 h-12 bg-alabaster border border-zinc-300 mx-auto flex items-center justify-center mb-3">
+        <i data-lucide="search-x" class="w-6 h-6 text-zinc-500"></i>
+      </div>
+      <h3 class="font-display font-bold text-lg">Siluet atau ukuran tidak ditemukan</h3>
+      <p class="text-xs text-zinc-500 max-w-md mx-auto mt-1 mb-4">Coba ganti kata kunci pencarian, pilih ukuran EU lain, atau reset seluruh filter aktif.</p>
+      <button onclick="resetAllFilters()" class="bg-obsidian text-limevolt font-mono text-xs px-4 py-2.5 uppercase font-bold">
+        Tampilkan Semua Koleksi
+      </button>
+    </div>
+  </main>
+
+  <!-- FOOTWEAR CARE JOURNAL -->
+  <section id="journalSection" data-scroll-reveal class="border-t border-zinc-900/15 bg-alabaster py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-6">
+        <span class="font-mono text-[11px] text-zinc-500 uppercase">ARCHIVE JOURNAL // PANDUAN</span>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl uppercase mt-1">Rawat siluet, pakai lebih lama.</h2>
+        <p class="mt-2 max-w-2xl text-sm text-zinc-600">Panduan singkat membersihkan bahan sepatu dan inspirasi styling sehari-hari.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="bg-white border border-zinc-300 p-5">
+          <span class="font-mono text-[10px] text-zinc-500">CARE GUIDE // SUEDE</span>
+          <h3 class="mt-2 font-display font-bold text-lg">Cara membersihkan suede tanpa merusak teksturnya</h3>
+          <p class="mt-2 text-xs leading-relaxed text-zinc-600">Sikat lembut suede dalam keadaan kering mengikuti arah serat. Untuk noda, gunakan penghapus suede atau kain sedikit lembap; jangan merendam atau mengeringkan dengan panas langsung. Uji produk pembersih di area tersembunyi terlebih dahulu.</p>
+        </article>
+        <article class="bg-white border border-zinc-300 p-5">
+          <span class="font-mono text-[10px] text-zinc-500">CARE GUIDE // CANVAS</span>
+          <h3 class="mt-2 font-display font-bold text-lg">Cuci sepatu kanvas dengan lebih aman</h3>
+          <p class="mt-2 text-xs leading-relaxed text-zinc-600">Lepas tali dan bersihkan debu dengan sikat kering. Gunakan sabun lembut dan air dingin pada kain atau sikat, lalu tepuk dengan kain bersih. Keringkan alami di tempat teduh; hindari mesin cuci dan pemutih agar lem serta warna tetap terjaga.</p>
+        </article>
+        <article class="bg-white border border-zinc-300 p-5">
+          <span class="font-mono text-[10px] text-zinc-500">STYLE NOTES // OUTFIT</span>
+          <h3 class="mt-2 font-display font-bold text-lg">Padukan chunky runner untuk outfit harian</h3>
+          <p class="mt-2 text-xs leading-relaxed text-zinc-600">Seimbangkan runner tebal dengan denim lurus atau baggy yang sedikit menumpuk di atas sepatu. Untuk tampilan minimal, pilih warna netral dan biarkan panel metallic menjadi aksen. Lihat rekomendasi siluet di <a href="#vibeMatcher" class="underline font-semibold text-obsidian">Vibe Matcher</a>.</p>
+        </article>
+      </div>
+      <p class="mt-3 text-[10px] font-mono text-zinc-500">Catatan: tips perawatan bersifat umum. Ikuti petunjuk produsen untuk material dan produk pembersih tertentu.</p>
+    </div>
+  </section>
+
+  <!-- MEMBER REWARDS -->
+  <section id="memberSection" data-scroll-reveal class="border-t border-zinc-900/15 bg-white py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-5">
+        <span class="font-mono text-[11px] text-zinc-500 uppercase">KINETIC MEMBER // LOYALTY</span>
+        <h2 class="font-display font-bold text-2xl uppercase mt-1">Setiap langkah punya nilai.</h2>
+        <p class="text-sm text-zinc-600 mt-2">Dapatkan 1 poin per Rp10.000 dari subtotal pesanan demo. Tulis ulasan untuk bonus 25 poin. Tukarkan 100 poin menjadi potongan Rp10.000.</p>
+        <p class="text-[11px] text-zinc-500 mt-2">Poin disimpan di browser ini sebagai demo (tanpa akun). Poin transaksi pada demo diberikan saat checkout WhatsApp dibuat; transaksi nyata memerlukan konfirmasi backend.</p>
+      </div>
+      <div class="lg:col-span-7 bg-alabaster border border-zinc-300 p-4">
+        <div class="flex items-center justify-between gap-3 mb-3">
+          <span class="font-mono text-xs font-bold uppercase">Saldo poin demo</span>
+          <span class="font-mono font-bold text-lg"><span id="memberPointsDisplay">0</span> PTS</span>
+        </div>
+        <form id="reviewForm" onsubmit="submitMemberReview(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <input id="reviewName" type="text" placeholder="Nama" class="border border-zinc-300 px-3 py-2 text-xs" required>
+          <select id="reviewRating" class="border border-zinc-300 px-3 py-2 text-xs" aria-label="Rating ulasan">
+            <option value="5">★★★★★ — 5</option><option value="4">★★★★☆ — 4</option><option value="3">★★★☆☆ — 3</option>
+          </select>
+          <button type="submit" class="bg-obsidian text-limevolt px-3 py-2 font-mono text-xs font-bold uppercase">Kirim ulasan +25 pts</button>
+          <textarea id="reviewText" rows="2" placeholder="Bagikan pengalaman memakai sepatu..." class="sm:col-span-3 border border-zinc-300 px-3 py-2 text-xs" required></textarea>
+        </form>
+        <p id="reviewMessage" class="hidden mt-2 text-xs text-emerald-700" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER TRACKER & BUYER FAQ SECTION -->
+  <section id="trackerSection" data-scroll-reveal class="border-t border-zinc-900/15 bg-white py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Left: Order Verification & QC Status -->
+      <div class="lg:col-span-5">
+        <div class="border border-obsidian bg-alabaster p-6">
+          <div class="flex items-center justify-between font-mono text-[11px] text-zinc-500 mb-2">
+            <span>ARCHIVE VERIFICATION // QC</span>
+            <span class="text-obsidian font-bold">LIVE LOG</span>
+          </div>
+          <h3 class="font-display font-bold text-2xl tracking-tight uppercase">Lacak Pesanan & Resi</h3>
+          <p class="text-xs text-zinc-600 mt-1 mb-4 leading-relaxed">
+            Masukkan kode order untuk melihat log QC demo. Pelacakan posisi kurir otomatis membutuhkan integrasi API ekspedisi dan backend; halaman ini belum terhubung ke layanan kurir.
+          </p>
+
+          <form onsubmit="handleTrackOrder(event)" class="flex gap-2">
+            <input 
+              type="text" 
+              id="trackingCodeInput" 
+              placeholder="Contoh: ARC-8821" 
+              class="flex-1 bg-white border border-zinc-400 focus:border-obsidian px-3.5 py-2.5 text-xs font-mono uppercase outline-none"
+              required
+            />
+            <button type="submit" class="bg-obsidian text-limevolt hover:bg-zinc-800 px-4 py-2.5 font-mono text-xs font-bold uppercase transition-colors shrink-0">
+              CEK STATUS
+            </button>
+          </form>
+
+          <!-- Tracking Result Box -->
+          <div id="trackingResult" class="mt-4 hidden border border-zinc-300 bg-white p-4 space-y-2.5 text-xs">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-zinc-300/80 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+            <span>Kode Simulasi: <button type="button" onclick="quickFillTrack('ARC-8821')" class="underline text-obsidian font-semibold">ARC-8821</button></span>
+            <span><button type="button" onclick="quickFillTrack('ARC-9042')" class="underline text-obsidian font-semibold">ARC-9042</button></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Buyer Assurance FAQ -->
+      <div class="lg:col-span-7 space-y-4">
+        <div>
+          <span class="font-mono text-[11px] text-zinc-500 uppercase">BUYER ASSURANCE // FAQ</span>
+          <h3 class="font-display font-bold text-2xl tracking-tight uppercase mt-0.5">Jaminan Belanja Tanpa Ragu</h3>
+        </div>
+
+        <div class="divide-y divide-zinc-200 border-t border-b border-zinc-200">
+          <details class="group py-3.5" open>
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-sm list-none">
+              <span>Apakah bisa tukar ukuran jika kebesaran atau kekecilan?</span>
+              <i data-lucide="plus" class="w-4 h-4 text-zinc-500 group-open:rotate-45 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed">
+              <strong>Bisa.</strong> Kami memberikan garansi tukar ukuran maksimal 7 hari sejak paket diterima, selama sepatu belum dipakai berjalan di luar ruangan, tag masih terpasang, dan box asli dalam kondisi utuh.
+            </p>
+          </details>
+
+          <details class="group py-3.5">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-sm list-none">
+              <span>Bagaimana kondisi pengemasan agar box sepatu tidak penyok?</span>
+              <i data-lucide="plus" class="w-4 h-4 text-zinc-500 group-open:rotate-45 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed">
+              Seluruh pengiriman reguler menggunakan pelindung kardus luar tambahan (<em>Double Box</em>) dan bubble wrap tebal secara standar, sehingga box original sepatu tetap mulus untuk dikoleksi.
+            </p>
+          </details>
+
+          <details class="group py-3.5">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-sm list-none">
+              <span>Apakah pembeli mendapat foto asli sepatu sebelum dikirim?</span>
+              <i data-lucide="plus" class="w-4 h-4 text-zinc-500 group-open:rotate-45 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed">
+              Ya. Setelah pesanan terkonfirmasi di WhatsApp, tim gudang kami akan mengirimkan foto & video detail unit (jahitan, insole, label size, dan box) sesuai nomor urut pesananmu sebelum diserahkan ke kurir.
+            </p>
+          </details>
+
+          <details class="group py-3.5">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-sm list-none">
+              <span>Bagaimana metode pembayaran dan konfirmasi pesanan?</span>
+              <i data-lucide="plus" class="w-4 h-4 text-zinc-500 group-open:rotate-45 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed">
+              Checkout langsung terhubung ke WhatsApp admin resmi kami. Pembayaran mendukung Transfer Bank (BCA/Mandiri/BRI), QRIS, serta COD khusus area kota operasional.
+            </p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-obsidian text-zinc-400 border-t border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 text-white font-display font-bold text-lg uppercase">
+          <span class="w-6 h-6 bg-limevolt text-obsidian flex items-center justify-center text-xs font-bold">K/A</span>
+          <span id="footerBrandName">KINETIC ARCHIVE®</span>
+        </div>
+        <p class="text-xs text-zinc-500 mt-1.5 font-mono">
+          CURATED Y2K RUNNERS, SKATE SILHOUETTES & ARCHIVE FOOTWEAR // <span id="footerCity">JAKARTA, ID</span>
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-mono">
+        <a href="#catalogSection" class="hover:text-white">KATALOG</a>
+        <a href="#journalSection" class="hover:text-white">JOURNAL</a>
+        <a href="#memberSection" class="hover:text-white">MEMBER</a>
+        <button onclick="openSizeFinderModal()" class="hover:text-white">SIZE GUIDE</button>
+        <a href="#trackerSection" class="hover:text-white">LACAK QC</a>
+        <!-- Discreet Admin Trigger -->
+        <button onclick="openAdminGate()" title="Mode Pengelola" class="p-1.5 text-zinc-600 hover:text-limevolt transition-colors" aria-label="Mode Pengelola">
+          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       MODAL 1: PRODUCT QUICK VIEW & VARIANT SELECTOR
+  ========================================================= -->
+  <div id="productModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian/75 backdrop-blur-sm p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-alabaster border border-obsidian w-full max-w-3xl overflow-hidden shadow-2xl my-auto relative animate-fadeIn">
+      <!-- Top Modal Bar -->
+      <div class="flex items-center justify-between px-5 py-3 bg-obsidian text-alabaster font-mono text-xs">
+        <span id="modalReleaseCode">SPEC // ARCH-001</span>
+        <button onclick="closeProductModal()" class="text-zinc-400 hover:text-limevolt flex items-center gap-1">
+          <span>TUTUP [ESC]</span>
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12">
+        <!-- Product Gallery -->
+        <div class="md:col-span-6 bg-white p-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-zinc-200">
+          <div class="relative aspect-square bg-zinc-100 overflow-hidden border border-zinc-200">
+            <img id="modalMainImg" src="" alt="" class="w-full h-full object-cover" />
+            <span id="modalStatusTag" class="absolute top-3 left-3 px-2.5 py-1 bg-obsidian text-limevolt font-mono text-[10px] font-bold uppercase">
+              NEW DROP
+            </span>
+          </div>
+
+          <!-- Thumbnail Switcher -->
+          <div class="grid grid-cols-3 gap-2 mt-3" id="modalThumbnails">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Product Configurator -->
+        <div class="md:col-span-6 p-5 sm:p-6 flex flex-col justify-between space-y-5 max-h-[82vh] overflow-y-auto">
+          <div class="space-y-4">
+            <div>
+              <span id="modalCategory" class="font-mono text-[11px] text-zinc-500 uppercase">Y2K CHUNKY RUNNERS</span>
+              <h3 id="modalTitle" class="font-display font-bold text-2xl tracking-tight uppercase mt-0.5">SILHOUETTE NAME</h3>
+              <p id="modalColorway" class="font-mono text-xs text-zinc-600 mt-0.5">Colorway: Metallic Silver / Black</p>
+            </div>
+
+            <!-- Pricing -->
+            <div class="flex items-baseline gap-2.5 pb-3 border-b border-zinc-200">
+              <span id="modalPrice" class="font-mono text-xl font-bold text-obsidian">Rp 1.450.000</span>
+              <span id="modalOriginalPrice" class="font-mono text-xs text-zinc-400 line-through">Rp 1.750.000</span>
+            </div>
+
+            <!-- Fit Note -->
+            <div class="p-3 bg-white border border-zinc-300 flex items-start gap-2.5">
+              <i data-lucide="info" class="w-4 h-4 text-obsidian shrink-0 mt-0.5"></i>
+              <div class="text-xs">
+                <span class="font-mono font-bold uppercase block text-[11px]">FIT & SIZING NOTE:</span>
+                <span id="modalFitNote" class="text-zinc-600">True to size. Naik 0.5 size untuk kaki tipe lebar.</span>
+              </div>
+            </div>
+
+            <!-- Size Selector (EU / US / CM) -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-mono text-xs font-bold uppercase">Pilih Ukuran (EU / US / CM):</span>
+                <button type="button" onclick="openSizeFinderModal()" class="font-mono text-[11px] underline text-zinc-600 hover:text-obsidian">
+                  Ukur Kaki (cm)
+                </button>
+              </div>
+              <div id="modalSizeGrid" class="grid grid-cols-3 gap-2">
+                <!-- Populated by JS -->
+              </div>
+              <p id="sizeErrorMsg" class="hidden text-xs font-mono text-red-600 mt-1.5">
+                * Silakan pilih ukuran sepatu terlebih dahulu.
+              </p>
+            </div>
+
+            <!-- Optional Add-ons -->
+            <div>
+              <span class="font-mono text-xs font-bold uppercase block mb-2">Proteksi & Aksesoris Tambahan:</span>
+              <div class="space-y-2 text-xs">
+                <label class="flex items-center justify-between p-2.5 bg-white border border-zinc-300 hover:border-obsidian cursor-pointer">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" class="addon-checkbox accent-obsidian w-4 h-4" value="Extra Oval Y2K Laces" data-price="35000">
+                    <span>Extra Oval Y2K Laces (Chrome/Cream)</span>
+                  </div>
+                  <span class="font-mono font-semibold">+Rp 35.000</span>
+                </label>
+
+                <label class="flex items-center justify-between p-2.5 bg-white border border-zinc-300 hover:border-obsidian cursor-pointer">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" class="addon-checkbox accent-obsidian w-4 h-4" value="Anti-Crease Toe Shield" data-price="45000">
+                    <span>Anti-Crease Toebox Shield (1 Pasang)</span>
+                  </div>
+                  <span class="font-mono font-semibold">+Rp 45.000</span>
+                </label>
+
+                <label class="flex items-center justify-between p-2.5 bg-white border border-zinc-300 hover:border-obsidian cursor-pointer">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" class="addon-checkbox accent-obsidian w-4 h-4" value="Hardcase Acrylic Box" data-price="85000">
+                    <span>Upgrade Hardcase Collector Box</span>
+                  </div>
+                  <span class="font-mono font-semibold">+Rp 85.000</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add to Cart CTA -->
+          <div class="pt-3 border-t border-zinc-200">
+            <button onclick="addSelectedProductToCart()" class="w-full bg-obsidian text-limevolt hover:bg-zinc-800 py-3.5 px-5 font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+              <span>TAMBAH KE KERANJANG</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESTOCK NOTIFICATION REQUEST -->
+  <div id="restockModal" class="fixed inset-0 z-[55] hidden items-center justify-center bg-obsidian/75 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="restockTitle">
+    <div class="w-full max-w-md border border-obsidian bg-alabaster shadow-2xl">
+      <div class="flex items-center justify-between bg-obsidian px-5 py-3 text-alabaster font-mono text-xs">
+        <span>RESTOCK ALERT // NOTIFY ME</span>
+        <button type="button" onclick="closeRestockModal()" class="text-zinc-400 hover:text-limevolt" aria-label="Tutup">✕</button>
+      </div>
+      <form onsubmit="submitRestockRequest(event)" class="p-5 space-y-3">
+        <h2 id="restockTitle" class="font-display font-bold text-xl uppercase">Kabari saat tersedia</h2>
+        <p id="restockProductLabel" class="text-xs text-zinc-600"></p>
+        <label class="block font-mono text-[11px] font-bold uppercase" for="restockContact">Email atau nomor WhatsApp</label>
+        <input id="restockContact" type="text" required placeholder="email@contoh.com / 0812..." class="w-full border border-zinc-400 bg-white px-3 py-2.5 text-sm outline-none focus:border-obsidian">
+        <p class="text-[11px] text-zinc-500">Permintaan tersimpan di browser ini sebagai demo. Pengiriman notifikasi otomatis memerlukan server dan layanan email/WhatsApp.</p>
+        <button class="w-full bg-obsidian py-3 font-mono text-xs font-bold uppercase text-limevolt">SIMPAN PERMINTAAN</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 2: SMART SIZE FINDER
+  ========================================================= -->
+  <div id="sizeFinderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian/75 backdrop-blur-sm p-4">
+    <div class="bg-alabaster border border-obsidian w-full max-w-md overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between px-5 py-3 bg-obsidian text-alabaster font-mono text-xs">
+        <span>SMART SIZE FINDER // FOOT MEASUREMENT</span>
+        <button onclick="closeSizeFinderModal()" class="text-zinc-400 hover:text-limevolt">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <p class="text-xs text-zinc-600 leading-relaxed">
+          Ukur panjang telapak kaki dari tumit hingga ujung jari terpanjang dalam satuan <strong>centimeter (cm)</strong> untuk mendapatkan rekomendasi ukuran EU & US paling presisi.
+        </p>
+
+        <div>
+          <label class="block font-mono text-xs font-bold uppercase mb-1.5">Panjang Telapak Kaki (CM):</label>
+          <input 
+            type="number" 
+            id="footLengthCm" 
+            step="0.1" 
+            min="22" 
+            max="31" 
+            placeholder="Contoh: 25.5" 
+            class="w-full bg-white border border-zinc-400 focus:border-obsidian px-3.5 py-2.5 font-mono text-sm outline-none"
+          />
+        </div>
+
+        <div>
+          <label class="block font-mono text-xs font-bold uppercase mb-1.5">Tipe Bentuk Kaki:</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="cursor-pointer">
+              <input type="radio" name="footWidth" value="normal" checked class="peer hidden">
+              <div class="p-2.5 text-center border border-zinc-300 bg-white peer-checked:border-obsidian peer-checked:bg-obsidian peer-checked:text-limevolt font-mono text-xs">
+                NORMAL / SLIM
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="footWidth" value="wide" class="peer hidden">
+              <div class="p-2.5 text-center border border-zinc-300 bg-white peer-checked:border-obsidian peer-checked:bg-obsidian peer-checked:text-limevolt font-mono text-xs">
+                LEBAR (WIDE FEET)
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button onclick="calculateRecommendedSize()" class="w-full bg-obsidian text-limevolt hover:bg-zinc-800 py-3 font-mono text-xs font-bold uppercase tracking-wider transition-colors">
+          HITUNG UKURAN IDEAL
+        </button>
+
+        <!-- Result Box -->
+        <div id="sizeFinderResult" class="hidden p-4 bg-white border-2 border-obsidian space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[11px] text-zinc-500">REKOMENDASI SISTEM:</span>
+            <span class="px-2 py-0.5 bg-limevolt text-obsidian font-mono text-[10px] font-bold">OPTIMAL FIT</span>
+          </div>
+          <div id="recommendedSizeOutput" class="font-display font-bold text-2xl text-obsidian">
+            EU 41 / US 8
+          </div>
+          <p id="recommendedSizeNote" class="text-xs text-zinc-600"></p>
+          <button id="applyRecommendedFilterBtn" class="w-full mt-2 border border-obsidian bg-alabaster hover:bg-obsidian hover:text-white py-2 font-mono text-xs font-semibold transition-colors">
+            TAMPILKAN SEPATU READY SIZE INI
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SLIDE-OVER CART DRAWER & WHATSAPP CHECKOUT
+  ========================================================= -->
+  <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 z-50 hidden bg-obsidian/70 backdrop-blur-xs transition-opacity"></div>
+  
+  <aside id="cartDrawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-alabaster border-l border-obsidian shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Drawer Header -->
+    <div class="px-5 py-4 bg-obsidian text-alabaster flex items-center justify-between border-b border-zinc-800">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-4 h-4 text-limevolt"></i>
+        <span class="font-mono text-xs font-bold uppercase tracking-wider">ARCHIVE BAG (<span id="drawerCartCount">0</span>)</span>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="text-zinc-400 hover:text-limevolt">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Content (Scrollable) -->
+    <div class="flex-1 overflow-y-auto p-5 space-y-6">
+      
+      <!-- Cart Items List -->
+      <div id="cartItemsContainer" class="space-y-3">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Empty Cart Placeholder -->
+      <div id="emptyCartState" class="py-12 text-center space-y-3">
+        <div class="w-12 h-12 mx-auto bg-white border border-zinc-300 flex items-center justify-center">
+          <i data-lucide="package-open" class="w-6 h-6 text-zinc-400"></i>
+        </div>
+        <p class="font-display font-bold text-base">Keranjang Belanja Kosong</p>
+        <p class="text-xs text-zinc-500 max-w-xs mx-auto">Pilih siluet sepatu dan ukuran favoritmu terlebih dahulu sebelum melanjutkan checkout.</p>
+      </div>
+
+      <!-- Checkout Form Section (Visible when cart has items) -->
+      <div id="checkoutFormWrapper" class="hidden space-y-5 pt-4 border-t border-zinc-300">
+        
+        <!-- Shipping Method -->
+        <div>
+          <label class="block font-mono text-xs font-bold uppercase mb-2">1. Metode Pengiriman:</label>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-center justify-between p-2.5 bg-white border border-zinc-300 cursor-pointer has-[:checked]:border-obsidian">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="shippingMethod" value="Reguler + Double Box" data-cost="25000" checked onchange="updateCartTotals()" class="accent-obsidian">
+                <div>
+                  <span class="font-semibold block">Reguler + Double Box Pelindung</span>
+                  <span class="text-[11px] text-zinc-500">Estimasi 2–4 hari kerja seluruh Indonesia</span>
+                </div>
+              </div>
+              <span class="font-mono font-bold">Rp 25.000</span>
+            </label>
+
+            <label class="flex items-center justify-between p-2.5 bg-white border border-zinc-300 cursor-pointer has-[:checked]:border-obsidian">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="shippingMethod" value="Instant / Same Day Lokal" data-cost="35000" onchange="updateCartTotals()" class="accent-obsidian">
+                <div>
+                  <span class="font-semibold block">Instant / Same Day Kurir</span>
+                  <span class="text-[11px] text-zinc-500">Tiba di hari yang sama (Area Kota Toko)</span>
+                </div>
+              </div>
+              <span class="font-mono font-bold">Rp 35.000</span>
+            </label>
+
+            <label class="flex items-center justify-between p-2.5 bg-white border border-zinc-300 cursor-pointer has-[:checked]:border-obsidian">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="shippingMethod" value="Ambil di Store (Pickup)" data-cost="0" onchange="updateCartTotals()" class="accent-obsidian">
+                <div>
+                  <span class="font-semibold block">Ambil di Store / Fitting Langsung</span>
+                  <span class="text-[11px] text-zinc-500">Bebas ongkir & bisa coba size di tempat</span>
+                </div>
+              </div>
+              <span class="font-mono font-bold text-emerald-700">GRATIS</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Buyer Details -->
+        <div class="space-y-3">
+          <label class="block font-mono text-xs font-bold uppercase">2. Data Penerima:</label>
+          
+          <input type="text" id="buyerName" placeholder="Nama Lengkap Penerima *" class="w-full bg-white border border-zinc-300 focus:border-obsidian px-3 py-2 text-xs outline-none" required>
+          
+          <input type="tel" id="buyerPhone" placeholder="Nomor WhatsApp Aktif (mis. 0812xxxx) *" class="w-full bg-white border border-zinc-300 focus:border-obsidian px-3 py-2 text-xs outline-none" required>
+          
+          <textarea id="buyerAddress" rows="2" placeholder="Alamat Lengkap, Kecamatan & Kota *" class="w-full bg-white border border-zinc-300 focus:border-obsidian px-3 py-2 text-xs outline-none" required></textarea>
+          
+          <input type="text" id="buyerNote" placeholder="Catatan Opsional (mis. Minta foto real unit sebelum kirim)" class="w-full bg-white border border-zinc-300 focus:border-obsidian px-3 py-2 text-xs outline-none">
+        </div>
+
+        <div class="border border-zinc-300 bg-alabaster p-3 text-xs">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input id="redeemPointsToggle" type="checkbox" onchange="updateCartTotals()" class="mt-0.5 accent-obsidian">
+            <span><strong class="font-mono">TUKAR POIN MEMBER</strong><span class="block text-zinc-600 mt-0.5">Gunakan 100 poin untuk diskon Rp10.000. Saldo: <span id="cartMemberPoints">0</span> pts</span></span>
+          </label>
+        </div>
+
+        <!-- Cost Breakdown -->
+        <div class="bg-white border border-zinc-300 p-3.5 space-y-1.5 font-mono text-xs">
+          <div class="flex justify-between text-zinc-600">
+            <span>Subtotal Produk</span>
+            <span id="cartSubtotalDisplay">Rp 0</span>
+          </div>
+          <div class="flex justify-between text-zinc-600">
+            <span>Estimasi Ongkir</span>
+            <span id="cartShippingDisplay">Rp 25.000</span>
+          </div>
+          <div class="flex justify-between text-emerald-700">
+            <span>Diskon Poin</span>
+            <span id="cartDiscountDisplay">Rp 0</span>
+          </div>
+          <div class="flex justify-between font-bold text-sm text-obsidian pt-2 border-t border-zinc-200">
+            <span>TOTAL ESTIMASI</span>
+            <span id="cartGrandTotalDisplay">Rp 0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Drawer Footer -->
+    <div id="cartDrawerFooter" class="hidden p-4 bg-white border-t border-zinc-300">
+      <button onclick="processWhatsAppCheckout()" class="w-full bg-[#16A34A] hover:bg-[#15803D] text-white py-3.5 px-4 font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-md">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>PESAN VIA WHATSAPP SEKARANG</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       MODAL 3: HIDDEN ADMIN / CATALOG MANAGER PANEL
+  ========================================================= -->
+  <div id="adminModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian/85 backdrop-blur-sm p-4 overflow-y-auto">
+    <div class="bg-alabaster border border-obsidian w-full max-w-4xl overflow-hidden shadow-2xl my-auto">
+      <div class="px-5 py-3.5 bg-obsidian text-alabaster flex items-center justify-between font-mono text-xs">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-limevolt"></span>
+          <span>ARCHIVE CATALOG & STORE MANAGER</span>
+        </div>
+        <button onclick="closeAdminModal()" class="text-zinc-400 hover:text-limevolt">TUTUP [X]</button>
+      </div>
+
+      <!-- PIN Gate -->
+      <div id="adminPinGate" class="p-8 max-w-sm mx-auto text-center space-y-4">
+        <div class="w-11 h-11 bg-obsidian text-limevolt mx-auto flex items-center justify-center">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl uppercase">Otorisasi Pengelola</h3>
+        <p class="text-xs text-zinc-600">Masukkan kode PIN akses pengelola untuk mengubah katalog produk dan pengaturan toko.</p>
+        <form onsubmit="verifyAdminPin(event)" class="space-y-3">
+          <input type="password" id="adminPinInput" maxlength="8" placeholder="••••" class="w-full text-center tracking-[0.5em] bg-white border border-zinc-400 focus:border-obsidian py-2.5 font-mono text-base outline-none" required>
+          <p id="adminPinError" class="hidden text-xs font-mono text-red-600">PIN akses tidak valid.</p>
+          <button type="submit" class="w-full bg-obsidian text-limevolt py-2.5 font-mono text-xs font-bold uppercase">
+            BUKA PANEL PENGELOLA
+          </button>
+        </form>
+      </div>
+
+      <!-- Admin Dashboard Content -->
+      <div id="adminDashboard" class="hidden p-5 sm:p-6 space-y-6 max-h-[82vh] overflow-y-auto">
+        
+        <!-- Store Settings -->
+        <div class="bg-white border border-zinc-300 p-4 space-y-3">
+          <h4 class="font-mono text-xs font-bold uppercase border-b border-zinc-200 pb-2">Pengaturan Identitas & WhatsApp Tujuan</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-mono text-[11px] text-zinc-500 mb-1">Nama Toko / Archive</label>
+              <input type="text" id="adminStoreName" class="w-full border border-zinc-300 px-3 py-2 font-mono">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-zinc-500 mb-1">Kota Pengiriman</label>
+              <input type="text" id="adminStoreCity" class="w-full border border-zinc-300 px-3 py-2 font-mono">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-zinc-500 mb-1">No. WhatsApp (Awali 62)</label>
+              <input type="text" id="adminStoreWa" placeholder="6281234567890" class="w-full border border-zinc-300 px-3 py-2 font-mono">
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <button onclick="saveStoreSettings()" class="bg-obsidian text-limevolt px-4 py-2 font-mono text-xs font-bold uppercase">
+              SIMPAN PENGATURAN TOKO
+            </button>
+          </div>
+        </div>
+
+        <!-- Add New Shoe Form -->
+        <div class="bg-white border border-zinc-300 p-4 space-y-3">
+          <h4 class="font-mono text-xs font-bold uppercase border-b border-zinc-200 pb-2">Tambah Siluet Sepatu Baru</h4>
+          <form onsubmit="handleAddNewShoe(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+            <input type="text" id="newShoeName" placeholder="Nama Siluet (mis. Asics Gel-Kayano 14)" class="border border-zinc-300 px-3 py-2" required>
+            <input type="text" id="newShoeCode" placeholder="Kode Rilisan (mis. ARCH-1402)" class="border border-zinc-300 px-3 py-2 font-mono" required>
+            <input type="text" id="newShoeColor" placeholder="Colorway (mis. White / Pure Silver)" class="border border-zinc-300 px-3 py-2" required>
+            
+            <select id="newShoeCategory" class="border border-zinc-300 px-3 py-2 font-mono">
+              <option value="Y2K Chunky Runners">Y2K Chunky Runners</option>
+              <option value="Retro Court / Skate">Retro Court / Skate</option>
+              <option value="Limited Archive / Collab">Limited Archive / Collab</option>
+              <option value="Daily Essentials">Daily Essentials</option>
+            </select>
+
+            <input type="number" id="newShoePrice" placeholder="Harga Jual (Rp, angka saja)" class="border border-zinc-300 px-3 py-2 font-mono" required>
+            <input type="number" id="newShoeOrigPrice" placeholder="Harga Coret Opsional (Rp)" class="border border-zinc-300 px-3 py-2 font-mono">
+            
+            <select id="newShoeTag" class="border border-zinc-300 px-3 py-2 font-mono">
+              <option value="New Drop">New Drop</option>
+              <option value="Best Seller">Best Seller</option>
+              <option value="Low Stock">Low Stock</option>
+              <option value="Archive Rare">Archive Rare</option>
+            </select>
+
+            <input type="text" id="newShoeSizes" placeholder="Ukuran Ready (pisahkan koma: 40,41,42,43)" value="39,40,41,42,43" class="border border-zinc-300 px-3 py-2 font-mono" required>
+            <input type="url" id="newShoeImg" placeholder="URL Foto Unsplash (https://...)" value="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85" class="border border-zinc-300 px-3 py-2" required>
+            
+            <input type="text" id="newShoeFit" placeholder="Fit Note (mis. True to size)" value="True to size. Nyaman untuk pemakaian harian." class="sm:col-span-2 border border-zinc-300 px-3 py-2">
+            
+            <button type="submit" class="bg-obsidian text-limevolt py-2.5 px-4 font-mono font-bold uppercase hover:bg-zinc-800">
+              + TAMBAH KE KATALOG
+            </button>
+          </form>
+        </div>
+
+        <!-- Existing Catalog Management Table -->
+        <div class="bg-white border border-zinc-300 p-4 space-y-3">
+          <div class="flex items-center justify-between border-b border-zinc-200 pb-2">
+            <h4 class="font-mono text-xs font-bold uppercase">Daftar Katalog Aktif (<span id="adminProductCount">0</span>)</h4>
+            <button onclick="resetDefaultCatalog()" class="text-[11px] font-mono text-red-600 underline">Reset Data Awal</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs font-mono">
+              <thead class="bg-alabaster border-b border-zinc-300 text-[11px]">
+                <tr>
+                  <th class="p-2">KODE</th>
+                  <th class="p-2">SILUET</th>
+                  <th class="p-2">HARGA</th>
+                  <th class="p-2">READY SIZES</th>
+                  <th class="p-2">STATUS</th>
+                  <th class="p-2 text-right">AKSI</th>
+                </tr>
+              </thead>
+              <tbody id="adminCatalogTableBody" class="divide-y divide-zinc-200">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WELCOME POPUP -->
+  <div id="welcomePopup" class="fixed inset-0 z-[60] hidden items-center justify-center bg-obsidian/75 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="welcome-card relative w-full max-w-md border border-obsidian bg-alabaster p-6 sm:p-8 shadow-2xl">
+      <button type="button" onclick="closeWelcomePopup()" class="absolute right-4 top-4 text-zinc-500 hover:text-obsidian" aria-label="Tutup popup sambutan">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-zinc-500">KINETIC ARCHIVE® // WELCOME</span>
+      <h2 id="welcomeTitle" class="mt-3 font-display text-3xl font-bold uppercase leading-tight">Selamat datang di <span class="text-cobalt">arsip.</span></h2>
+      <p class="mt-3 text-sm leading-relaxed text-zinc-600">Temukan siluet Y2K dan footwear pilihanmu. Setiap unit melalui inspeksi QC sebelum dikirim dengan perlindungan double box.</p>
+      <div class="mt-6 flex flex-col-reverse sm:flex-row gap-2">
+        <button type="button" onclick="closeWelcomePopup()" class="border border-zinc-300 bg-white px-4 py-3 font-mono text-xs font-bold uppercase hover:border-obsidian">NANTI SAJA</button>
+        <button type="button" onclick="closeWelcomePopup(); document.getElementById('catalogSection').scrollIntoView({behavior:'smooth'});" class="flex-1 bg-obsidian px-4 py-3 font-mono text-xs font-bold uppercase text-limevolt hover:bg-zinc-800">JELAJAHI KATALOG →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 hidden bg-obsidian text-alabaster border border-limevolt px-4 py-3 shadow-xl font-mono text-xs items-center gap-2.5">
+    <span class="w-2 h-2 rounded-full bg-limevolt"></span>
+    <span id="toastMessage">Berhasil ditambahkan ke keranjang</span>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT APPLICATION LOGIC
+  ========================================================= -->
+  <script>
+    // 1. DEFAULT DATA & STATE INITIALIZATION
+    const ADMIN_PIN = "2026";
+    const STORAGE_KEYS = {
+      PRODUCTS: "ka_products_v1",
+      CART: "ka_cart_v1",
+      SETTINGS: "ka_settings_v1",
+      ORDERS: "ka_orders_v1",
+      POINTS: "ka_member_points_v1",
+      RESTOCK: "ka_restock_requests_v1"
+    };
+
+    const EU_SIZE_CHART = {
+      38: { us: "6", cm: "24.0" },
+      39: { us: "6.5", cm: "24.5" },
+      40: { us: "7.5", cm: "25.5" },
+      41: { us: "8", cm: "26.0" },
+      42: { us: "9", cm: "27.0" },
+      43: { us: "9.5", cm: "27.5" },
+      44: { us: "10.5", cm: "28.5" }
+    };
+
+    const VIBE_DESCRIPTIONS = {
+      baggy: "👖 <strong>Baggy Denim & Streetwear:</strong> Siluet berproporsi chunky dan sole tebal menjaga celana baggy tetap jatuh proporsional tanpa menutupi seluruh sepatu.",
+      minimal: "🤍 <strong>Clean Minimalist / Smart Casual:</strong> Siluet low-profile dengan palet netral monokrom & aksen chrome halus untuk tampilan rapi namun modern.",
+      techwear: "⚡ <strong>Sporty / Y2K Techwear:</strong> Panel metallic overlay, open-cell mesh, dan bantalan gel era awal 2000-an yang selaras dengan celana kargo & parasut.",
+      campus: "🎒 <strong>Daily Campus / Hangout:</strong> Bantalan empuk ringan dan konstruksi tahan lama untuk mobilitas seharian penuh."
+    };
+
+    const DEFAULT_SETTINGS = {
+      storeName: "KINETIC ARCHIVE®",
+      city: "JAKARTA",
+      whatsapp: "6281234567890"
+    };
+
+    const DEFAULT_PRODUCTS = [
+      {
+        id: "sh-1",
+        code: "ARCH-2004-SLV",
+        name: "GEL-NIMBUS Y2K CHROME",
+        colorway: "Metallic Silver / Obsidian Mesh",
+        category: "Y2K Chunky Runners",
+        price: 1450000,
+        originalPrice: 1750000,
+        tag: "Best Seller",
+        sizes: [39, 40, 41, 42, 43, 44],
+        vibes: ["baggy", "techwear", "campus"],
+        fitNote: "True to size. Jika memiliki tipe kaki lebar (wide feet), disarankan naik 0.5 size.",
+        images: [
+          "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=85"
+        ]
+      },
+      {
+        id: "sh-2",
+        code: "ARCH-990V-ASH",
+        name: "990V6 ARCHIVE RUNNER",
+        colorway: "Castlerock Grey / Alabaster",
+        category: "Y2K Chunky Runners",
+        price: 1890000,
+        originalPrice: 2150000,
+        tag: "New Drop",
+        sizes: [40, 41, 42, 43],
+        vibes: ["baggy", "minimal", "campus"],
+        fitNote: "Sedikit roomy di bagian toebox. Ambil ukuran normal (True to Size).",
+        images: [
+          "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=900&q=85"
+        ]
+      },
+      {
+        id: "sh-3",
+        code: "CRT-002-PND",
+        name: "CAMPUS 00S CHUNKY SKATE",
+        colorway: "Core Black / Off-White Fat Lace",
+        category: "Retro Court / Skate",
+        price: 1290000,
+        originalPrice: 1490000,
+        tag: "Best Seller",
+        sizes: [38, 39, 40, 41, 42],
+        vibes: ["baggy", "campus"],
+        fitNote: "Lidah sepatu (tongue) tebal khas skate Y2K. Disarankan naik 0.5 size untuk ruang ekstra.",
+        images: [
+          "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=85"
+        ]
+      },
+      {
+        id: "sh-4",
+        code: "LTD-XT6-CBT",
+        name: "XT-6 LAB TRAIL ARCHIVE",
+        colorway: "Phantom Black / Cobalt Chrome",
+        category: "Limited Archive / Collab",
+        price: 2250000,
+        originalPrice: null,
+        tag: "Low Stock",
+        sizes: [41, 42, 43],
+        vibes: ["techwear", "baggy"],
+        fitNote: "Siluet ramping (narrow fit) dengan sistem Quicklace. Wajib naik 0.5–1 size.",
+        images: [
+          "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=900&q=85"
+        ]
+      },
+      {
+        id: "sh-5",
+        code: "ESS-70S-CRM",
+        name: "COURT REMASTERED 70 LOW",
+        colorway: "Alabaster Cream / Gum Sole",
+        category: "Daily Essentials",
+        price: 980000,
+        originalPrice: 1150000,
+        tag: "Best Seller",
+        sizes: [38, 39, 40, 41, 42, 43, 44],
+        vibes: ["minimal", "campus"],
+        fitNote: "True to size. Material kulit sintetis premium mudah dibersihkan untuk harian.",
+        images: [
+          "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=900&q=85"
+        ]
+      },
+      {
+        id: "sh-6",
+        code: "LTD-VMR5-LME",
+        name: "ZOOM VOMERO 5 ELECTRIC",
+        colorway: "Pure Platinum / Volt Lime",
+        category: "Limited Archive / Collab",
+        price: 1950000,
+        originalPrice: 2200000,
+        tag: "New Drop",
+        sizes: [40, 41, 42, 44],
+        vibes: ["techwear", "baggy", "campus"],
+        fitNote: "True to size. Sangat ringan dengan sirkulasi udara maksimal.",
+        images: [
+          "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=900&q=85"
+        ]
+      },
+      {
+        id: "sh-7",
+        code: "CRT-SBA-WHT",
+        name: "GERMAN ARMY TRAINER REPRO",
+        colorway: "Chalk White / Suede Ash",
+        category: "Retro Court / Skate",
+        price: 1190000,
+        originalPrice: null,
+        tag: "New Drop",
+        sizes: [39, 40, 41, 42, 43],
+        vibes: ["minimal", "campus"],
+        fitNote: "True to size. Potongan low-profile klasik yang cocok dipadukan celana bahan maupun denim.",
+        images: [
+          "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=900&q=85"
+        ]
+      },
+      {
+        id: "sh-8",
+        code: "ESS-2002-OBS",
+        name: "2002R PROTECTION PACK",
+        colorway: "Phantom Obsidian / Graphite",
+        category: "Daily Essentials",
+        price: 1680000,
+        originalPrice: 1890000,
+        tag: "Low Stock",
+        sizes: [41, 42, 43, 44],
+        vibes: ["baggy", "minimal", "techwear", "campus"],
+        fitNote: "True to size. Panel suede raw-cut dengan bantalan N-ergy empuk.",
+        images: [
+          "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&w=900&q=85"
+        ]
+      }
+    ];
+
+    const DEFAULT_ORDERS = {
+      "ARC-8821": {
+        code: "ARC-8821",
+        buyer: "Raka Pratama",
+        item: "GEL-NIMBUS Y2K CHROME (EU 42)",
+        status: "LOLOS QC & DALAM PENGIRIMAN",
+        qcNote: "Foto detail unit & double box telah dikirim ke WhatsApp pembeli.",
+        courier: "JNE Reguler (Double Box)",
+        updatedAt: "Hari ini, 10:15 WIB"
+      },
+      "ARC-9042": {
+        code: "ARC-9042",
+        buyer: "Nadia Putri",
+        item: "CAMPUS 00S CHUNKY SKATE (EU 39)",
+        status: "PROSES INSPEKSI FOTO QC",
+        qcNote: "Tim gudang sedang mengambil foto real unit sebelum pickup kurir.",
+        courier: "Instant Kurir",
+        updatedAt: "Hari ini, 13:40 WIB"
+      }
+    };
+
+    // App Runtime State
+    let products = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS)) || DEFAULT_PRODUCTS;
+    let cart = JSON.parse(localStorage.getItem(STORAGE_KEYS.CART)) || [];
+    let settings = JSON.parse(localStorage.getItem(STORAGE_KEYS.SETTINGS)) || DEFAULT_SETTINGS;
+    let ordersDB = JSON.parse(localStorage.getItem(STORAGE_KEYS.ORDERS)) || DEFAULT_ORDERS;
+    let memberPoints = Number(localStorage.getItem(STORAGE_KEYS.POINTS)) || 0;
+    let restockRequests = JSON.parse(localStorage.getItem(STORAGE_KEYS.RESTOCK)) || [];
+    let restockProduct = null;
+    let restockSize = null;
+
+    let activeCategory = "ALL";
+    let activeSizeFilter = "ALL";
+    let activeVibe = "all";
+    let searchQuery = "";
+    let currentModalProduct = null;
+    let selectedModalSize = null;
+
+    // Helper: Currency Formatter
+    function formatIDR(num) {
+      return "Rp " + Number(num).toLocaleString("id-ID");
+    }
+
+    // Helper: Toast Notification
+    function showToast(msg) {
+      const toast = document.getElementById("toastNotification");
+      document.getElementById("toastMessage").textContent = msg;
+      toast.classList.remove("hidden");
+      toast.classList.add("flex");
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.add("hidden");
+        toast.classList.remove("flex");
+      }, 3000);
+    }
+
+    // Apply Store Settings to UI
+    function applyStoreSettingsToUI() {
+      document.getElementById("brandNameHeader").textContent = settings.storeName;
+      document.getElementById("footerBrandName").textContent = settings.storeName;
+      document.getElementById("headerCityBadge").textContent = `SHIPPING FROM ${settings.city.toUpperCase()}`;
+      document.getElementById("footerCity").textContent = `${settings.city.toUpperCase()}, ID`;
+      document.title = `${settings.storeName} — Y2K & Contemporary Footwear`;
+    }
+
+    // 2. CATALOG RENDERING & FILTERING
+    let scrollRevealObserver = null;
+
+    function setupScrollReveal() {
+      const targets = document.querySelectorAll("[data-scroll-reveal], #productGrid > .product-card");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        targets.forEach(target => target.classList.add("is-visible"));
+        return;
+      }
+
+      if (!("IntersectionObserver" in window)) {
+        targets.forEach(target => target.classList.add("is-visible"));
+        return;
+      }
+
+      if (!scrollRevealObserver) {
+        scrollRevealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              scrollRevealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+      }
+
+      targets.forEach(target => {
+        if (!target.classList.contains("scroll-reveal")) {
+          target.classList.add("scroll-reveal");
+          scrollRevealObserver.observe(target);
+        }
+      });
+    }
+
+    function renderCatalog() {
+      const grid = document.getElementById("productGrid");
+      const emptyState = document.getElementById("emptyCatalogState");
+      const counter = document.getElementById("catalogCounter");
+      const resetBtn = document.getElementById("resetFilterBtn");
+      const sortMode = document.getElementById("sortSelect").value;
+
+      let filtered = products.filter(item => {
+        const matchCat = activeCategory === "ALL" || item.category === activeCategory;
+        const matchSize = activeSizeFilter === "ALL" || item.sizes.includes(Number(activeSizeFilter));
+        const matchVibe = activeVibe === "all" || (item.vibes && item.vibes.includes(activeVibe));
+        const q = searchQuery.toLowerCase().trim();
+        const matchSearch = !q || 
+          item.name.toLowerCase().includes(q) || 
+          item.code.toLowerCase().includes(q) || 
+          item.colorway.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q);
+        return matchCat && matchSize && matchVibe && matchSearch;
+      });
+
+      // Sorting
+      if (sortMode === "price-asc") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortMode === "price-desc") {
+        filtered.sort((a, b) => b.price - a.price);
+      }
+
+      // Update Counter & Reset Button visibility
+      counter.textContent = `Menampilkan ${filtered.length} siluet`;
+      const hasActiveFilter = activeCategory !== "ALL" || activeSizeFilter !== "ALL" || activeVibe !== "all" || searchQuery.trim() !== "";
+      resetBtn.classList.toggle("hidden", !hasActiveFilter);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        emptyState.classList.remove("hidden");
+        lucide.createIcons();
+        return;
+      }
+
+      emptyState.classList.add("hidden");
+      grid.innerHTML = filtered.map(item => {
+        const tagStyle = item.tag === "Low Stock" 
+          ? "bg-red-600 text-white" 
+          : item.tag === "New Drop" 
+            ? "bg-limevolt text-obsidian" 
+            : "bg-obsidian text-alabaster";
+
+        const sizeBadges = item.sizes.map(sz => {
+          const isHighlighted = Number(activeSizeFilter) === sz;
+          return `<span class="px-1.5 py-0.5 text-[10px] font-mono border ${isHighlighted ? 'bg-obsidian text-limevolt border-obsidian font-bold' : 'bg-alabaster text-zinc-700 border-zinc-300'}">${sz}</span>`;
+        }).join("");
+
+        return `
+          <article onclick="openProductModalById('${item.id}')" class="product-card group bg-white border border-zinc-900/15 hover:border-obsidian transition-all cursor-pointer flex flex-col justify-between">
+            <div>
+              <!-- Image Container -->
+              <div class="relative aspect-[4/3] bg-zinc-100 overflow-hidden border-b border-zinc-200">
+                <img src="${item.images[0]}" alt="${item.name}" loading="lazy" class="product-img w-full h-full object-cover" />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 font-mono text-[10px] font-bold uppercase ${tagStyle}">
+                  ${item.tag}
+                </span>
+                <span class="absolute bottom-2 right-2 bg-obsidian/80 text-white px-2 py-0.5 font-mono text-[10px]">
+                  ${item.code}
+                </span>
+              </div>
+
+              <!-- Info -->
+              <div class="p-4 space-y-2">
+                <div class="font-mono text-[10px] text-zinc-500 uppercase tracking-wider">${item.category}</div>
+                <h3 class="font-display font-bold text-base leading-snug uppercase group-hover:underline">${item.name}</h3>
+                <p class="text-xs text-zinc-500 truncate">${item.colorway}</p>
+
+                <!-- Available Sizes Preview -->
+                <div class="pt-1">
+                  <span class="block font-mono text-[10px] text-zinc-400 mb-1">READY EU:</span>
+                  <div class="flex flex-wrap gap-1">
+                    ${sizeBadges}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Footer Price & Action -->
+            <div class="px-4 py-3 bg-alabaster/70 border-t border-zinc-200 flex items-center justify-between">
+              <div>
+                ${item.originalPrice ? `<span class="block font-mono text-[10px] text-zinc-400 line-through">${formatIDR(item.originalPrice)}</span>` : ''}
+                <span class="font-mono font-bold text-sm text-obsidian">${formatIDR(item.price)}</span>
+              </div>
+              <span class="inline-flex items-center gap-1 font-mono text-[11px] font-bold uppercase bg-white group-hover:bg-obsidian group-hover:text-limevolt border border-obsidian px-2.5 py-1.5 transition-colors">
+                PILIH <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      lucide.createIcons();
+      setupScrollReveal();
+    }
+
+    // Filter Handlers
+    function setCategoryFilter(cat) {
+      activeCategory = cat;
+      document.querySelectorAll(".cat-btn").forEach(btn => {
+        const isMatch = btn.dataset.cat === cat;
+        btn.className = isMatch
+          ? "cat-btn px-3.5 py-2 text-xs font-mono font-semibold uppercase bg-obsidian text-white border border-obsidian shrink-0"
+          : "cat-btn px-3.5 py-2 text-xs font-mono font-medium uppercase bg-white text-obsidian border border-zinc-300 hover:border-obsidian shrink-0";
+      });
+      renderCatalog();
+    }
+
+    function setSizeFilter(size) {
+      activeSizeFilter = size;
+      document.querySelectorAll(".size-filter-btn").forEach(btn => {
+        const isMatch = String(btn.dataset.size) === String(size);
+        btn.className = isMatch
+          ? "size-filter-btn px-2.5 py-1 text-xs font-mono font-bold bg-obsidian text-limevolt border border-obsidian"
+          : "size-filter-btn px-2.5 py-1 text-xs font-mono bg-alabaster hover:border-obsidian border border-zinc-300";
+      });
+      renderCatalog();
+    }
+
+    function selectVibe(vibe) {
+      activeVibe = vibe;
+      document.querySelectorAll(".vibe-btn").forEach(btn => {
+        const isMatch = btn.dataset.vibe === vibe;
+        btn.className = isMatch
+          ? "vibe-btn active px-3.5 py-2 text-xs font-mono border border-obsidian bg-obsidian text-limevolt transition-all"
+          : "vibe-btn px-3.5 py-2 text-xs font-mono border border-zinc-300 bg-alabaster hover:border-obsidian transition-all";
+      });
+
+      const adviceBox = document.getElementById("vibeAdviceBox");
+      const adviceText = document.getElementById("vibeAdviceText");
+      if (vibe === "all") {
+        adviceBox.classList.add("hidden");
+      } else {
+        adviceText.innerHTML = VIBE_DESCRIPTIONS[vibe];
+        adviceBox.classList.remove("hidden");
+      }
+      renderCatalog();
+    }
+
+    function resetAllFilters() {
+      searchQuery = "";
+      document.getElementById("searchInputDesktop").value = "";
+      document.getElementById("searchInputMobile").value = "";
+      document.getElementById("clearSearchDesktop").classList.add("hidden");
+      document.getElementById("clearSearchMobile").classList.add("hidden");
+      setCategoryFilter("ALL");
+      setSizeFilter("ALL");
+      selectVibe("all");
+    }
+
+    // Sync Desktop & Mobile Search
+    function setupSearchInputs() {
+      const desk = document.getElementById("searchInputDesktop");
+      const mob = document.getElementById("searchInputMobile");
+      const clrDesk = document.getElementById("clearSearchDesktop");
+      const clrMob = document.getElementById("clearSearchMobile");
+
+      const handleSearch = (val) => {
+        searchQuery = val;
+        desk.value = val;
+        mob.value = val;
+        clrDesk.classList.toggle("hidden", !val);
+        clrMob.classList.toggle("hidden", !val);
+        renderCatalog();
+      };
+
+      desk.addEventListener("input", (e) => handleSearch(e.target.value));
+      mob.addEventListener("input", (e) => handleSearch(e.target.value));
+      clrDesk.addEventListener("click", () => handleSearch(""));
+      clrMob.addEventListener("click", () => handleSearch(""));
+    }
+
+    // 3. PRODUCT QUICK VIEW MODAL
+    function openProductModalById(id) {
+      const product = products.find(p => p.id === id);
+      if (!product) return;
+
+      currentModalProduct = product;
+      selectedModalSize = null;
+      document.getElementById("sizeErrorMsg").classList.add("hidden");
+
+      document.getElementById("modalReleaseCode").textContent = `SPEC // ${product.code}`;
+      document.getElementById("modalCategory").textContent = product.category;
+      document.getElementById("modalTitle").textContent = product.name;
+      document.getElementById("modalColorway").textContent = `Colorway: ${product.colorway}`;
+      document.getElementById("modalPrice").textContent = formatIDR(product.price);
+      
+      const origEl = document.getElementById("modalOriginalPrice");
+      if (product.originalPrice) {
+        origEl.textContent = formatIDR(product.originalPrice);
+        origEl.classList.remove("hidden");
+      } else {
+        origEl.classList.add("hidden");
+      }
+
+      document.getElementById("modalStatusTag").textContent = product.tag;
+      document.getElementById("modalFitNote").textContent = product.fitNote;
+
+      // Gallery
+      const mainImg = document.getElementById("modalMainImg");
+      mainImg.src = product.images[0];
+      const thumbContainer = document.getElementById("modalThumbnails");
+      thumbContainer.innerHTML = product.images.map((imgUrl, idx) => `
+        <button type="button" onclick="switchModalImage('${imgUrl}')" class="aspect-square border ${idx === 0 ? 'border-obsidian' : 'border-zinc-300'} overflow-hidden bg-zinc-100 hover:border-obsidian">
+          <img src="${imgUrl}" class="w-full h-full object-cover" />
+        </button>
+      `).join("");
+
+      // Reset Add-on checkboxes
+      document.querySelectorAll(".addon-checkbox").forEach(cb => cb.checked = false);
+
+      // Render Size Grid (38-44)
+      const allSizes = [38, 39, 40, 41, 42, 43, 44];
+      const sizeGrid = document.getElementById("modalSizeGrid");
+      sizeGrid.innerHTML = allSizes.map(eu => {
+        const isAvailable = product.sizes.includes(eu);
+        const info = EU_SIZE_CHART[eu];
+        if (!isAvailable) {
+          return `
+            <button type="button" onclick="openRestockModal('${product.id}', ${eu})" class="p-2 border border-zinc-300 bg-white text-center hover:border-obsidian hover:bg-alabaster transition-colors" aria-label="Minta notifikasi restock EU ${eu}">
+              <div class="font-mono text-xs font-bold text-zinc-500">EU ${eu}</div>
+              <div class="font-mono text-[10px] underline">HABIS · NOTIFY ME</div>
+            </button>
+          `;
+        }
+        return `
+          <button type="button" onclick="selectModalSize(${eu})" data-modal-size="${eu}" class="modal-size-btn p-2 border border-zinc-300 bg-white hover:border-obsidian text-center transition-colors">
+            <div class="font-mono text-xs font-bold">EU ${eu}</div>
+            <div class="font-mono text-[10px] text-zinc-500">US ${info.us} • ${info.cm}cm</div>
+          </button>
+        `;
+      }).join("");
+
+      // Pre-select size if size filter is active and available
+      if (activeSizeFilter !== "ALL" && product.sizes.includes(Number(activeSizeFilter))) {
+        selectModalSize(Number(activeSizeFilter));
+      }
+
+      const modal = document.getElementById("productModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      lucide.createIcons();
+    }
+
+    function switchModalImage(url) {
+      document.getElementById("modalMainImg").src = url;
+    }
+
+    function selectModalSize(eu) {
+      selectedModalSize = eu;
+      document.getElementById("sizeErrorMsg").classList.add("hidden");
+      document.querySelectorAll(".modal-size-btn").forEach(btn => {
+        const match = Number(btn.dataset.modalSize) === eu;
+        btn.className = match
+          ? "modal-size-btn p-2 border border-obsidian bg-obsidian text-limevolt text-center transition-colors"
+          : "modal-size-btn p-2 border border-zinc-300 bg-white hover:border-obsidian text-center transition-colors";
+      });
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById("productModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    // 4. SMART SIZE FINDER LOGIC
+    function openRestockModal(productId, size) {
+      restockProduct = products.find(product => product.id === productId);
+      restockSize = size;
+      if (!restockProduct) return;
+      document.getElementById("restockProductLabel").textContent = `${restockProduct.name} · ${restockProduct.code} · EU ${size}`;
+      document.getElementById("restockContact").value = "";
+      const modal = document.getElementById("restockModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.getElementById("restockContact").focus();
+    }
+
+    function closeRestockModal() {
+      const modal = document.getElementById("restockModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function submitRestockRequest(event) {
+      event.preventDefault();
+      if (!restockProduct || !restockSize) return;
+      restockRequests.push({ productId: restockProduct.id, code: restockProduct.code, size: restockSize, contact: document.getElementById("restockContact").value.trim(), createdAt: new Date().toISOString() });
+      localStorage.setItem(STORAGE_KEYS.RESTOCK, JSON.stringify(restockRequests));
+      closeRestockModal();
+      showToast("Permintaan restock tersimpan di browser ini");
+    }
+
+    function renderMemberPoints() {
+      document.getElementById("memberPointsDisplay").textContent = memberPoints;
+      const cartPoints = document.getElementById("cartMemberPoints");
+      if (cartPoints) cartPoints.textContent = memberPoints;
+    }
+
+    function submitMemberReview(event) {
+      event.preventDefault();
+      memberPoints += 25;
+      localStorage.setItem(STORAGE_KEYS.POINTS, String(memberPoints));
+      renderMemberPoints();
+      const message = document.getElementById("reviewMessage");
+      message.textContent = `Terima kasih atas ulasan ${document.getElementById("reviewRating").value} bintang! 25 poin demo ditambahkan.`;
+      message.classList.remove("hidden");
+      event.target.reset();
+    }
+
+    function openSizeFinderModal() {
+      const modal = document.getElementById("sizeFinderModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeSizeFinderModal() {
+      const modal = document.getElementById("sizeFinderModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function calculateRecommendedSize() {
+      const cm = parseFloat(document.getElementById("footLengthCm").value);
+      const footType = document.querySelector('input[name="footWidth"]:checked').value;
+      if (!cm || cm < 22 || cm > 31) {
+        showToast("Masukkan panjang kaki antara 22.0 – 31.0 cm");
+        return;
+      }
+
+      // Add allowance (0.5cm normal, 1.0cm wide)
+      const targetCm = cm + (footType === "wide" ? 1.0 : 0.5);
+      let recEu = 41;
+      if (targetCm <= 24.3) recEu = 38;
+      else if (targetCm <= 24.9) recEu = 39;
+      else if (targetCm <= 25.7) recEu = 40;
+      else if (targetCm <= 26.4) recEu = 41;
+      else if (targetCm <= 27.2) recEu = 42;
+      else if (targetCm <= 27.9) recEu = 43;
+      else recEu = 44;
+
+      const info = EU_SIZE_CHART[recEu];
+      document.getElementById("recommendedSizeOutput").textContent = `EU ${recEu} / US ${info.us} (${info.cm} cm)`;
+      document.getElementById("recommendedSizeNote").textContent = footType === "wide"
+        ? `Sudah ditambah ruang ekstra untuk tipe kaki lebar dari panjang telapak ${cm} cm.`
+        : `Ukuran paling pas (snug-comfort) untuk panjang telapak ${cm} cm.`;
+
+      const applyBtn = document.getElementById("applyRecommendedFilterBtn");
+      applyBtn.onclick = () => {
+        closeSizeFinderModal();
+        setSizeFilter(recEu);
+        document.getElementById("catalogSection").scrollIntoView({ behavior: "smooth" });
+        showToast(`Menampilkan sepatu ready size EU ${recEu}`);
+      };
+
+      document.getElementById("sizeFinderResult").classList.remove("hidden");
+    }
+
+    // 5. CART & WHATSAPP CHECKOUT LOGIC
+    function saveCart() {
+      localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(cart));
+      renderCartUI();
+    }
+
+    function addSelectedProductToCart() {
+      if (!currentModalProduct) return;
+      if (!selectedModalSize) {
+        document.getElementById("sizeErrorMsg").classList.remove("hidden");
+        return;
+      }
+
+      const selectedAddons = [];
+      let addonsTotal = 0;
+      document.querySelectorAll(".addon-checkbox:checked").forEach(cb => {
+        selectedAddons.push(cb.value);
+        addonsTotal += Number(cb.dataset.price);
+      });
+
+      const addonKey = selectedAddons.sort().join("|");
+      const cartItemKey = `${currentModalProduct.id}_EU${selectedModalSize}_${addonKey}`;
+
+      const existing = cart.find(c => c.key === cartItemKey);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          key: cartItemKey,
+          productId: currentModalProduct.id,
+          code: currentModalProduct.code,
+          name: currentModalProduct.name,
+          colorway: currentModalProduct.colorway,
+          image: currentModalProduct.images[0],
+          size: selectedModalSize,
+          addons: selectedAddons,
+          unitPrice: currentModalProduct.price + addonsTotal,
+          qty: 1
+        });
+      }
+
+      saveCart();
+      closeProductModal();
+      toggleCartDrawer(true);
+      showToast(`${currentModalProduct.name} (EU ${selectedModalSize}) masuk keranjang`);
+    }
+
+    function updateCartItemQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      saveCart();
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById("cartDrawer");
+      const backdrop = document.getElementById("cartDrawerBackdrop");
+      if (open) {
+        backdrop.classList.remove("hidden");
+        drawer.classList.remove("translate-x-full");
+      } else {
+        backdrop.classList.add("hidden");
+        drawer.classList.add("translate-x-full");
+      }
+    }
+
+    function renderCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartCountBadge").textContent = totalItems;
+      document.getElementById("drawerCartCount").textContent = totalItems;
+
+      const container = document.getElementById("cartItemsContainer");
+      const emptyState = document.getElementById("emptyCartState");
+      const checkoutWrapper = document.getElementById("checkoutFormWrapper");
+      const drawerFooter = document.getElementById("cartDrawerFooter");
+
+      if (cart.length === 0) {
+        container.innerHTML = "";
+        emptyState.classList.remove("hidden");
+        checkoutWrapper.classList.add("hidden");
+        drawerFooter.classList.add("hidden");
+        return;
+      }
+
+      emptyState.classList.add("hidden");
+      checkoutWrapper.classList.remove("hidden");
+      drawerFooter.classList.remove("hidden");
+
+      container.innerHTML = cart.map((item, idx) => `
+        <div class="bg-white border border-zinc-300 p-3 flex gap-3">
+          <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover bg-zinc-100 border border-zinc-200 shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="flex items-start justify-between gap-2">
+              <h4 class="font-display font-bold text-xs uppercase truncate">${item.name}</h4>
+              <button onclick="updateCartItemQty(${idx}, -${item.qty})" class="text-zinc-400 hover:text-red-600">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="font-mono text-[11px] text-obsidian font-semibold mt-0.5">
+              SIZE: EU ${item.size} (US ${EU_SIZE_CHART[item.size]?.us || '-'})
+            </div>
+            ${item.addons.length > 0 ? `<div class="text-[10px] text-zinc-500 mt-0.5">+ ${item.addons.join(", ")}</div>` : ''}
+            
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-zinc-100">
+              <span class="font-mono text-xs font-bold">${formatIDR(item.unitPrice * item.qty)}</span>
+              <div class="flex items-center border border-zinc-300 font-mono text-xs">
+                <button onclick="updateCartItemQty(${idx}, -1)" class="px-2 py-0.5 hover:bg-zinc-100">-</button>
+                <span class="px-2 py-0.5 font-bold">${item.qty}</span>
+                <button onclick="updateCartItemQty(${idx}, 1)" class="px-2 py-0.5 hover:bg-zinc-100">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+      updateCartTotals();
+      lucide.createIcons();
+    }
+
+    function updateCartTotals() {
+      const subtotal = cart.reduce((sum, item) => sum + (item.unitPrice * item.qty), 0);
+      const selectedShip = document.querySelector('input[name="shippingMethod"]:checked');
+      const shippingCost = selectedShip ? Number(selectedShip.dataset.cost) : 0;
+      const redeemToggle = document.getElementById("redeemPointsToggle");
+      const pointsDiscount = redeemToggle && redeemToggle.checked ? Math.min(Math.floor(memberPoints / 100) * 10000, subtotal) : 0;
+      const grandTotal = subtotal - pointsDiscount + shippingCost;
+
+      renderMemberPoints();
+      document.getElementById("cartSubtotalDisplay").textContent = formatIDR(subtotal);
+      document.getElementById("cartShippingDisplay").textContent = shippingCost === 0 ? "GRATIS" : formatIDR(shippingCost);
+      document.getElementById("cartDiscountDisplay").textContent = pointsDiscount ? `-${formatIDR(pointsDiscount)}` : formatIDR(0);
+      document.getElementById("cartGrandTotalDisplay").textContent = formatIDR(grandTotal);
+    }
+
+    function processWhatsAppCheckout() {
+      const name = document.getElementById("buyerName").value.trim();
+      const phone = document.getElementById("buyerPhone").value.trim();
+      const address = document.getElementById("buyerAddress").value.trim();
+      const note = document.getElementById("buyerNote").value.trim();
+
+      if (!name || !phone || !address) {
+        showToast("Lengkapi Nama, No. WhatsApp, dan Alamat pengiriman");
+        return;
+      }
+
+      const selectedShip = document.querySelector('input[name="shippingMethod"]:checked');
+      const shipMethod = selectedShip ? selectedShip.value : "Reguler + Double Box";
+      const shipCost = selectedShip ? Number(selectedShip.dataset.cost) : 0;
+      const subtotal = cart.reduce((sum, item) => sum + (item.unitPrice * item.qty), 0);
+      const redeemToggle = document.getElementById("redeemPointsToggle");
+      const pointsDiscount = redeemToggle && redeemToggle.checked ? Math.min(Math.floor(memberPoints / 100) * 10000, subtotal) : 0;
+      const pointsUsed = pointsDiscount ? Math.ceil(pointsDiscount / 10000) * 100 : 0;
+      const grandTotal = subtotal - pointsDiscount + shipCost;
+
+      // Generate Transaction Code & save to local tracker
+      const txCode = "ARC-" + Math.floor(1000 + Math.random() * 9000);
+      ordersDB[txCode] = {
+        code: txCode,
+        buyer: name,
+        item: cart.map(c => `${c.name} (EU ${c.size}) x${c.qty}`).join(", "),
+        status: "MENUNGGU KONFIRMASI & FOTO QC",
+        qcNote: "Pesanan tercatat. Admin akan mengirimkan foto real unit via WhatsApp.",
+        courier: shipMethod,
+        updatedAt: "Baru saja"
+      };
+      localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(ordersDB));
+
+      // Build WhatsApp Message
+      const itemsText = cart.map((item, idx) => {
+        const addonStr = item.addons.length ? `\n   Add-on: ${item.addons.join(", ")}` : "";
+        return `${idx + 1}. *${item.name}* [${item.code}]\n   Size: *EU ${item.size}* | Qty: ${item.qty} | ${formatIDR(item.unitPrice * item.qty)}${addonStr}`;
+      }).join("\n");
+
+      const message = `Halo *${settings.storeName}*, saya ingin memesan sepatu berikut:\n\n` +
+        `*KODE ORDER:* ${txCode}\n` +
+        `----------------------------------\n` +
+        `${itemsText}\n` +
+        `----------------------------------\n` +
+        `Subtotal: ${formatIDR(subtotal)}\n` +
+        `Pengiriman (${shipMethod}): ${shipCost === 0 ? "GRATIS" : formatIDR(shipCost)}\n` +
+        (pointsDiscount ? `Diskon poin (${pointsUsed} pts): -${formatIDR(pointsDiscount)}\n` : "") +
+        `*TOTAL ESTIMASI: ${formatIDR(grandTotal)}*\n\n` +
+        `*DATA PENERIMA:*\n` +
+        `Nama: ${name}\n` +
+        `No. WA: ${phone}\n` +
+        `Alamat: ${address}\n` +
+        (note ? `Catatan: ${note}\n` : "") +
+        `\nMohon info ketersediaan & foto QC unit sebelum pengiriman. Terima kasih!`;
+
+      const waUrl = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
+      if (pointsUsed) {
+        memberPoints = Math.max(0, memberPoints - pointsUsed);
+        document.getElementById("redeemPointsToggle").checked = false;
+      }
+      memberPoints += Math.floor((subtotal - pointsDiscount) / 10000);
+      localStorage.setItem(STORAGE_KEYS.POINTS, String(memberPoints));
+      renderMemberPoints();
+      showToast("Poin demo diperbarui untuk pesanan WhatsApp");
+    }
+
+    // 6. ORDER TRACKER & QC VERIFICATION
+    function quickFillTrack(code) {
+      document.getElementById("trackingCodeInput").value = code;
+      handleTrackOrder(new Event("submit"));
+    }
+
+    function handleTrackOrder(e) {
+      e.preventDefault();
+      const rawCode = document.getElementById("trackingCodeInput").value.trim().toUpperCase();
+      const resBox = document.getElementById("trackingResult");
+      const record = ordersDB[rawCode];
+
+      resBox.classList.remove("hidden");
+      if (!record) {
+        resBox.innerHTML = `
+          <div class="text-red-600 font-mono font-bold">KODE TIDAK DITEMUKAN (${rawCode})</div>
+          <p class="text-zinc-600">Pastikan kode transaksi sesuai dengan format pada ringkasan pesanan WhatsApp Anda.</p>
+        `;
+        return;
+      }
+
+      resBox.innerHTML = `
+        <div class="flex items-center justify-between border-b border-zinc-200 pb-2">
+          <span class="font-mono font-bold text-obsidian">${record.code}</span>
+          <span class="px-2 py-0.5 bg-limevolt text-obsidian font-mono text-[10px] font-bold">${record.status}</span>
+        </div>
+        <div class="space-y-1 text-zinc-700">
+          <div><strong>Pembeli:</strong> ${record.buyer}</div>
+          <div><strong>Unit:</strong> ${record.item}</div>
+          <div><strong>Pengiriman:</strong> ${record.courier}</div>
+          <div class="p-2 bg-alabaster border-l-2 border-obsidian text-[11px] mt-1">
+            <strong>Log QC:</strong> ${record.qcNote}
+          </div>
+          <div class="text-[10px] font-mono text-zinc-400 pt-1">Update terakhir: ${record.updatedAt}</div>
+        </div>
+      `;
+    }
+
+    // 7. HIDDEN ADMIN PANEL LOGIC
+    function openAdminGate() {
+      const modal = document.getElementById("adminModal");
+      document.getElementById("adminPinGate").classList.remove("hidden");
+      document.getElementById("adminDashboard").classList.add("hidden");
+      document.getElementById("adminPinInput").value = "";
+      document.getElementById("adminPinError").classList.add("hidden");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeAdminModal() {
+      const modal = document.getElementById("adminModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      if (window.location.hash === "#admin") {
+        history.replaceState(null, "", window.location.pathname);
+      }
+    }
+
+    function verifyAdminPin(e) {
+      e.preventDefault();
+      const entered = document.getElementById("adminPinInput").value;
+      if (entered === ADMIN_PIN) {
+        document.getElementById("adminPinGate").classList.add("hidden");
+        document.getElementById("adminDashboard").classList.remove("hidden");
+        populateAdminDashboard();
+      } else {
+        document.getElementById("adminPinError").classList.remove("hidden");
+      }
+    }
+
+    function populateAdminDashboard() {
+      document.getElementById("adminStoreName").value = settings.storeName;
+      document.getElementById("adminStoreCity").value = settings.city;
+      document.getElementById("adminStoreWa").value = settings.whatsapp;
+      document.getElementById("adminProductCount").textContent = products.length;
+
+      const tbody = document.getElementById("adminCatalogTableBody");
+      tbody.innerHTML = products.map((p, idx) => `
+        <tr>
+          <td class="p-2 font-bold">${p.code}</td>
+          <td class="p-2">${p.name}</td>
+          <td class="p-2">${formatIDR(p.price)}</td>
+          <td class="p-2">
+            <input type="text" value="${p.sizes.join(',')}" onchange="adminUpdateSizes(${idx}, this.value)" class="w-28 border border-zinc-300 px-1.5 py-1 text-[11px]" />
+          </td>
+          <td class="p-2">
+            <select onchange="adminUpdateTag(${idx}, this.value)" class="border border-zinc-300 px-1.5 py-1 text-[11px]">
+              <option value="New Drop" ${p.tag === 'New Drop' ? 'selected' : ''}>New Drop</option>
+              <option value="Best Seller" ${p.tag === 'Best Seller' ? 'selected' : ''}>Best Seller</option>
+              <option value="Low Stock" ${p.tag === 'Low Stock' ? 'selected' : ''}>Low Stock</option>
+              <option value="Archive Rare" ${p.tag === 'Archive Rare' ? 'selected' : ''}>Archive Rare</option>
+            </select>
+          </td>
+          <td class="p-2 text-right">
+            <button onclick="adminDeleteProduct(${idx})" class="text-red-600 hover:underline font-bold">Hapus</button>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function saveStoreSettings() {
+      settings.storeName = document.getElementById("adminStoreName").value.trim() || DEFAULT_SETTINGS.storeName;
+      settings.city = document.getElementById("adminStoreCity").value.trim() || DEFAULT_SETTINGS.city;
+      settings.whatsapp = document.getElementById("adminStoreWa").value.trim().replace(/\D/g, '') || DEFAULT_SETTINGS.whatsapp;
+      localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+      applyStoreSettingsToUI();
+      showToast("Pengaturan toko berhasil disimpan");
+    }
+
+    function handleAddNewShoe(e) {
+      e.preventDefault();
+      const sizesArr = document.getElementById("newShoeSizes").value
+        .split(",")
+        .map(s => parseInt(s.trim(), 10))
+        .filter(n => !isNaN(n) && n >= 36 && n <= 46);
+
+      const newProduct = {
+        id: "sh-" + Date.now(),
+        code: document.getElementById("newShoeCode").value.trim().toUpperCase(),
+        name: document.getElementById("newShoeName").value.trim().toUpperCase(),
+        colorway: document.getElementById("newShoeColor").value.trim(),
+        category: document.getElementById("newShoeCategory").value,
+        price: Number(document.getElementById("newShoePrice").value),
+        originalPrice: Number(document.getElementById("newShoeOrigPrice").value) || null,
+        tag: document.getElementById("newShoeTag").value,
+        sizes: sizesArr.length ? sizesArr : [40, 41, 42],
+        vibes: ["baggy", "minimal", "techwear", "campus"],
+        fitNote: document.getElementById("newShoeFit").value.trim(),
+        images: [
+          document.getElementById("newShoeImg").value.trim(),
+          "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+          "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=900&q=85"
+        ]
+      };
+
+      products.unshift(newProduct);
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+      e.target.reset();
+      populateAdminDashboard();
+      renderCatalog();
+      showToast("Siluet baru ditambahkan ke katalog");
+    }
+
+    function adminUpdateSizes(idx, rawVal) {
+      const parsed = rawVal.split(",").map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n));
+      products[idx].sizes = parsed;
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+      renderCatalog();
+      showToast("Daftar ukuran diperbarui");
+    }
+
+    function adminUpdateTag(idx, newTag) {
+      products[idx].tag = newTag;
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+      renderCatalog();
+      showToast("Status tag diperbarui");
+    }
+
+    function adminDeleteProduct(idx) {
+      products.splice(idx, 1);
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+      populateAdminDashboard();
+      renderCatalog();
+      showToast("Siluet dihapus dari katalog");
+    }
+
+    function resetDefaultCatalog() {
+      products = [...DEFAULT_PRODUCTS];
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+      populateAdminDashboard();
+      renderCatalog();
+      showToast("Katalog dikembalikan ke data awal");
+    }
+
+    function closeWelcomePopup() {
+      const popup = document.getElementById("welcomePopup");
+      popup.classList.add("hidden");
+      popup.classList.remove("flex");
+    }
+
+    // Keyboard ESC handler
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeProductModal();
+        closeSizeFinderModal();
+        toggleCartDrawer(false);
+        closeAdminModal();
+        closeRestockModal();
+        closeWelcomePopup();
+      }
+    });
+
+    // Check URL hash #admin
+    window.addEventListener("hashchange", () => {
+      if (window.location.hash === "#admin") openAdminGate();
+    });
+
+    // BOOTSTRAP APPLICATION
+    document.addEventListener("DOMContentLoaded", () => {
+      applyStoreSettingsToUI();
+      setupSearchInputs();
+      renderCatalog();
+      renderCartUI();
+      renderMemberPoints();
+      setupScrollReveal();
+      lucide.createIcons();
+
+      const welcomePopup = document.getElementById("welcomePopup");
+      welcomePopup.classList.remove("hidden");
+      welcomePopup.classList.add("flex");
+      lucide.createIcons();
+
+      if (window.location.hash === "#admin") {
+        openAdminGate();
+      }
+    });
+  </script>
+</body>
+</html>
